@@ -1,55 +1,25 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    background: linear-gradient(to bottom right, #ffd1dc, #a8edea, #d7b0ff);
     text-align: center;
-}
-header {
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.7);
-}
-h1 {
-    font-size: 2.5em;
-    color: #ff69b4;
-}
-.tagline {
-    font-style: italic;
-    color: #444;
-}
-.services ul {
-    list-style: none;
+    background: linear-gradient(120deg, #ffdee9, #b5fffc);
+    margin: 0;
     padding: 0;
+    animation: backgroundMove 10s infinite alternate;
 }
-.services li {
-    background: white;
-    margin: 5px auto;
-    padding: 10px;
-    width: 200px;
-    border-radius: 8px;
-}
-.booking form {
-    display: flex;
-    flex-direction: column;
-    max-width: 300px;
-    margin: auto;
-}
-.booking label {
-    margin: 10px 0;
-}
+header h1 { color: #ff4da6; font-size: 2em; margin-top: 20px; }
+.phone-link { display: block; margin: 10px 0; color: #0073e6; text-decoration: none; }
 button {
-    padding: 10px;
-    background: #ff69b4;
-    color: white;
+    background-color: #fff;
     border: none;
-    cursor: pointer;
+    padding: 10px 20px;
+    margin: 5px;
     border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.qr {
-    width: 200px;
-    margin-top: 10px;
-}
-footer {
-    background: rgba(255,255,255,0.8);
-    padding: 10px;
-    margin-top: 20px;
+button:hover { background-color: #ffb3d9; }
+.qr-code { width: 150px; margin-top: 10px; }
+@keyframes backgroundMove {
+    from { background-position: left; }
+    to { background-position: right; }
 }
