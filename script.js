@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll("button").forEach(btn => {
-        btn.addEventListener("click", () => alert(`You selected: ${btn.textContent}`));
-    });
+document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Your booking has been submitted! Please complete payment via Cash App.');
 });
