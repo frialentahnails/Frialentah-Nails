@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Frialentahs Nails</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">✨ Frialentahs Nails ✨</h1>
+      <div class="contact">
+        <a href="tel:+16787248587" class="phone">📞 678-724-8587</a>
+      </div>
+      <p class="tagline">Where your nails meet paradise</p>
+      <button class="book-btn" onclick="scrollToBooking()">❤ Book Now</button>
+    </div>
+    <div class="palm palm-left"></div>
+    <div class="palm palm-right"></div>
+  </header>
+
+  <main>
+    <section class="gallery">
+      <h2>Our Nail Styles</h2>
+      <div class="grid">
+        <figure><img src="assets/junks.jpg" alt="Junks nails"><figcaption>Junks nails</figcaption></figure>
+        <figure><img src="assets/detailed.jpg" alt="Detailed nails"><figcaption>Detailed nails</figcaption></figure>
+        <figure><img src="assets/plain.jpg" alt="Plain"><figcaption>Plain</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="booking" class="booking">
+      <h2>Book Your Appointment</h2>
+      <form id="bookingForm">
+        <div class="row"><input name="name" placeholder="Your name" required></div>
+        <div class="row"><input name="phone" placeholder="Phone number" required></div>
+        <div class="row"><input name="email" placeholder="Email (for confirmation)" type="email" required></div>
+        <div class="row">
+          <select name="service" required>
+            <option value="">Choose service</option>
+            <option>Junks nails</option>
+            <option>Detailed nails</option>
+            <option>Plain</option>
+            <option>Ombré</option>
+            <option>Regular French</option>
+          </select>
+        </div>
+        <div class="row"><input type="datetime-local" name="start_at" required></div>
+        <div class="row actions">
+          <label><input type="checkbox" id="payNow"> Pay via Cash App now</label>
+          <button type="submit" class="submit-btn">Book now</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="confirmation" class="confirmation hidden">
+      <h2>Thank you for booking!</h2>
+      <p>Your booking is pending confirmation (24‑hour hold). Please send payment via Cash App:</p>
+      <img src="assets/cashapp_qr.png" alt="Cash App QR" class="qr">
+      <div class="cashtag">$heather5366 <button class="copy" onclick="copyCashTag()">Copy</button></div>
+      <p class="note">We'll hold your spot 24 hours. Mark paid in admin to confirm.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© Frialentahs Nails</p>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
