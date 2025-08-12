@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frialentah's Nails - Book Your Appointment</title>
+  <style>
+    /* Background and body */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('palm-trees-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Container */
+    .booking-container {
+      background-color: rgba(0, 0, 0, 0.85);
+      max-width: 480px;
+      width: 100%;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+      box-sizing: border-box;
+    }
+
+    /* Header */
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    /* Form labels */
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    /* Inputs, selects, textareas */
+    select, input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 18px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      background-color: #222;
+      color: #fff;
+      box-sizing: border-box;
+    }
+
+    /* Date input pointer */
+    input[type="date"] {
+      cursor: pointer;
+    }
+
+    /* Buttons */
+    button, .text-info-btn {
+      background: #ff4081;
+      border: none;
+      padding: 12px 0;
+      width: 100%;
+      font-size: 1.2rem;
+      color: white;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-bottom: 15px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button:hover, .text-info-btn:hover {
+      background: #e73370;
+    }
+
+    /* Cash App QR styling */
+    .cashapp-qr {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .cashapp-qr img {
+      width: 150px;
+      border-radius: 12px;
+      border: 2px solid #fff;
+    }
+
+    .cashapp-info {
+      margin-top: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    /* Responsive */
+    @media (max-width: 520px) {
+      .booking-container {
+        padding: 20px;
+      }
+      button, .text-info-btn {
+        font-size: 1rem;
+        padding: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="booking-container">
+  <h2>Book Your Nail Appointment</h2>
+  <form id="bookingForm">
+    <label for="service">Choose Your Service</label>
+    <select id="service" name="service" required>
+      <option value="" disabled selected>Select a service</option>
+      <option value="bling" data-price="35" data-cashapp="$FrialentahBling">Bling Set - $35</option>
+      <option value="plain" data-price="20" data-cashapp="$FrialentahPlain">Plain Set - $20</option>
+      <option value="ombre" data-price="30" data-cashapp="$FrialentahOmbre">Ombré - $30</option>
+      <option value="french" data-price="25" data-cashapp="$FrialentahFrench">French Tips - $25</option>
+      <option value="detailed-art" data-price="40" data-cashapp="$FrialentahArt">Detailed Art - $40</option>
+    </select>
+
+    <label for="date">Select Date</label>
+    <input type="date" id="date" name="date" required min="" />
+
+    <label for="time">Select Time</label>
+    <input type="time" id="time" name="time" required />
+
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Full Name" required />
+
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required pattern="[0-9]{10}" />
+
+    <label for="notes">Additional Notes</label>
+    <textarea id="notes" name="notes" rows="3" placeholder="Any preferences or questions?"></textarea>
+
+    <button type="submit">Submit Booking</button>
+  </form>
+
+  <a href="sms:+16787248587?body=Hi%20Frialentah%2C%20I%20would%20like%20more%20information%20about%20nail%20services." class="text-info-btn" aria-label="Text Frialentah for info">Text Me for Info 📲</a>
+
+  <div class="cashapp-qr" id="cashappSection" style="display:none;">
+    <p class="cashapp-info">Pay with Cash App</p>
+    <img src="cashapp-qr.png" alt="Cash App QR Code" />
+    <p class="cashapp-info" id="cashappCashtag"></p>
+  </div>
+</div>
+
+<script>
+  // Set min date for date picker to today
+  const dateInput = document.getElementById('date');
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.min = today;
+
+  const serviceSelect = document.getElementById('service');
+  const cashappSection = document.getElementById('cashappSection');
+  const cashappCashtag = document.getElementById('cashappCashtag');
+
+  // Show correct Cash App Cashtag depending on selected service
+  serviceSelect.addEventListener('change', () => {
+    const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+    const cashtag = selectedOption.getAttribute('data-cashapp');
+    if (cashtag) {
+      cashappCashtag.textContent = `Cash App: ${cashtag}`;
+      cashappSection.style.display = 'block';
+    } else {
+      cashappSection.style.display = 'none';
+    }
+  });
+
+  // Handle form submit
+  document.getElementById('bookingForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const service = this.service.value;
+    const date = this.date.value;
+    const time = this.time.value;
+    const name = this.name.value.trim();
+    const phone = this.phone.value.trim();
+
+    if (!service || !date || !time || !name || !phone) {
+      alert('Please fill out all required fields.');
+      return;
+    }
+
+    alert(`Thanks, ${name}! Your ${service} appointment is booked for ${date} at ${time}. Please pay via Cash App.`);
+    this.reset();
+    cashappSection.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
