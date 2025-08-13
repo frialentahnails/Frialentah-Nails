@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frialentahs Nails</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
     <header>
@@ -79,21 +79,4 @@
 
     <script>
     document.getElementById("bookingForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        fetch(this.action, {
-            method: "POST",
-            body: new FormData(this),
-        }).then(response => {
-            if (response.ok) {
-                window.location.href = "thankyou.html";
-            } else {
-                alert("There was a problem sending your booking. Please try again.");
-            }
-        }).catch(() => {
-            alert("Network error. Please try again.");
-        });
-    });
-    </script>
-</body>
-</html>
+        e.
