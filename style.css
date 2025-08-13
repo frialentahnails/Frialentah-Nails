@@ -1,112 +1,107 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background: linear-gradient(to right, #fddde6, #d6f5f5);
-    padding: 20px;
+    background: linear-gradient(120deg, #ffdee9, #b5fffc);
     margin: 0;
+    padding: 0;
+    animation: backgroundMove 10s infinite alternate;
 }
 
 header h1 {
     color: #ff4da6;
-    font-size: 2.5em;
-    margin-bottom: 5px;
+    font-size: 2em;
+    margin-top: 20px;
 }
 
-header p {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-}
-
-/* Phone link styled like buttons */
 .phone-link {
     display: inline-block;
-    background: linear-gradient(90deg, #ffb6c1, #b2fefa);
-    color: #ff1493;
+    background: linear-gradient(135deg, #ffb3d9, #b5fffc);
+    color: #ff4da6;
+    border: none;
     padding: 10px 20px;
-    border-radius: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1em;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
-.phone-link span {
-    color: #0077ff;
+
+.phone-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 /* Service buttons */
-.services button {
-    background: linear-gradient(90deg, #ffb6c1, #b2fefa);
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 12px;
-    font-weight: bold;
-    color: #ff1493;
-    font-size: 1em;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-
-.services h2, .booking h2, .payment h2 {
-    font-size: 1.5em;
+.services {
     margin-top: 20px;
-    margin-bottom: 10px;
 }
 
-/* Booking form */
-#bookingForm {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    max-width: 400px;
-    margin: auto;
+.service-item {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
 }
 
-#bookingForm label {
-    flex: 1 1 100%;
-    text-align: left;
+.services button {
+    background: linear-gradient(135deg, #ffb3d9, #b5fffc);
+    color: #ff4da6;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-#bookingForm input, 
-#bookingForm select {
-    width: 100%;
-    padding: 5px;
-    margin-top: 3px;
+.services button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-#bookingForm button {
+.price {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #ff4da6;
+    font-size: 0.9rem;
+}
+
+/* "Book Now" submit button */
+.booking button[type="submit"] {
     background-color: #ff4da6;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 50px;
-    font-size: 1em;
-    cursor: pointer;
+    font-size: 1rem;
+    padding: 10px 24px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     font-weight: bold;
+    animation: pulse 2s infinite;
+    border: none;
 }
 
-/* QR code smaller */
+.booking button[type="submit"]:hover {
+    background-color: #e04493;
+    transform: scale(1.05);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    50% { transform: scale(1.06); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+    100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+}
+
+/* QR code size fix */
 .qr-code {
-    width: 150px;
+    width: 120px;
     height: auto;
     margin-top: 10px;
 }
 
-/* Mobile layout fix for Date input + Button */
-@media (max-width: 600px) {
-    #bookingForm label {
-        flex: 1 1 100%;
-    }
-    #bookingForm input[type="date"],
-    #bookingForm button[type="submit"] {
-        flex: 1 1 auto;
-        min-width: 140px;
-    }
-    #bookingForm input[type="date"] {
-        order: 10;
-    }
-    #bookingForm button[type="submit"] {
-        order: 11;
-    }
+@keyframes backgroundMove {
+    from { background-position: left; }
+    to { background-position: right; }
 }
