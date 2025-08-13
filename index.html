@@ -1,82 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frialentahs Nails</title>
-    <link rel="stylesheet" href="style.css?v=3">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frialentahs Nails</title>
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
-    <header>
-        <h1>Frialentahs Nails</h1>
-        <p>Where your nails meet paradise</p>
-        <a href="sms:6787248587" class="phone-link">💬 Text here for questions</a>
-    </header>
+  <header>
+    <h1>Frialentahs Nails</h1>
+    <p>Where your nails meet paradise</p>
+    <a href="sms:6787248587" class="phone-link">💬 Text here for questions</a>
+  </header>
 
-    <section class="services">
-        <h2>Our Services</h2>
-        <div class="service-item">
-            <button>French</button>
-            <p class="price">$25</p>
-        </div>
-        <div class="service-item">
-            <button>Ombré</button>
-            <p class="price">$25</p>
-        </div>
-        <div class="service-item">
-            <button>Plain</button>
-            <p class="price">$20</p>
-        </div>
-        <div class="service-item">
-            <button>Full Detailed</button>
-            <p class="price">$35</p>
-        </div>
-        <div class="service-item">
-            <button>Junks</button>
-            <p class="price">$35</p>
-        </div>
-        <div class="service-item">
-            <button>Minimal Detail</button>
-            <p class="price">$25</p>
-        </div>
-    </section>
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-item"><button>French</button><p class="price">$25</p></div>
+    <div class="service-item"><button>Ombré</button><p class="price">$25</p></div>
+    <div class="service-item"><button>Plain</button><p class="price">$20</p></div>
+    <div class="service-item"><button>Full Detailed</button><p class="price">$35</p></div>
+    <div class="service-item"><button>Junks</button><p class="price">$35</p></div>
+    <div class="service-item"><button>Minimal Detail</button><p class="price">$25</p></div>
+  </section>
 
-    <section class="booking">
-        <h2>Book Your Appointment</h2>
-        <form id="bookingForm" action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
+  <section class="booking">
+    <h2>Book Your Appointment</h2>
+    <form id="bookingForm" action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
 
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
 
-            <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required>
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone" required>
 
-            <label for="service">Service:</label>
-            <select id="service" name="service" required>
-                <option value="">Select</option>
-                <option>French</option>
-                <option>Ombré</option>
-                <option>Plain</option>
-                <option>Full Detailed</option>
-                <option>Junks</option>
-                <option>Minimal Detail</option>
-            </select>
+      <label for="service">Service:</label>
+      <select id="service" name="service" required>
+        <option value="">Select</option>
+        <option>French</option>
+        <option>Ombré</option>
+        <option>Plain</option>
+        <option>Full Detailed</option>
+        <option>Junks</option>
+        <option>Minimal Detail</option>
+      </select>
 
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required>
 
-            <!-- FormSubmit hidden fields -->
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://YOUR-USERNAME.github.io/thankyou.html">
+      <!-- FormSubmit controls -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://frialentahnails.github.io/Frialentah-Nails/thankyou.html">
 
-            <button type="submit" class="book-btn">Book Now</button>
-        </form>
-    </section>
+      <button type="submit" class="book-btn">Book Now</button>
+    </form>
+  </section>
 
-    <section class="payment">
-        <h2>Payment via Cash App</h2>
-        <p>Send to <strong>$heather5366</strong></p>
-        <img src="cashapp-qr.jpeg" alt="Cash App QR Code" class="qr-code">
-    </section>
+  <section class="payment">
+    <h2>Payment via Cash App</h2>
+    <p>Send to <strong>$heather5366</strong></p>
+    <img src="cashapp-qr.jpeg" alt="Cash App QR Code" class="qr-code">
+  </section>
 </body>
 </html>
