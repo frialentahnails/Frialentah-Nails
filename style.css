@@ -13,7 +13,6 @@ header h1 {
     margin-top: 20px;
 }
 
-/* Phone link styled like service buttons */
 .phone-link {
     display: inline-block;
     background: linear-gradient(135deg, #ffb3d9, #b5fffc);
@@ -24,9 +23,9 @@ header h1 {
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    font-size: 1rem;
     font-weight: bold;
-    text-decoration: none; /* removes underline */
+    text-decoration: none;
+    font-size: 1rem;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -47,4 +46,52 @@ header h1 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     font-size: 1rem;
     font-weight: bold;
-    transition: trans
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.services button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* "Book Now" button */
+.booking button[type="submit"] {
+    background-color: #ff4da6;
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 24px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-weight: bold;
+    animation: pulse 2s infinite;
+    border: none;
+}
+
+.booking button[type="submit"]:hover {
+    background-color: #e04493;
+    transform: scale(1.08);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    50% { transform: scale(1.06); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+    100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+}
+
+/* QR Code styling */
+.qr-code {
+    width: 110px;       /* nice small size */
+    height: auto;       /* keep proportions */
+    max-width: 100%;    /* responsive */
+    margin: 10px auto;  /* center horizontally */
+    display: block;     /* needed for centering */
+    border: 2px solid #ffb3d9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+@keyframes backgroundMove {
+    from { background-position: left; }
+    to { background-position: right; }
+}
