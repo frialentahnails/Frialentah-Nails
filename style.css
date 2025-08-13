@@ -33,7 +33,6 @@ header h1 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* Service buttons */
 .services {
     margin-top: 20px;
 }
@@ -69,19 +68,47 @@ header h1 {
     font-size: 0.9rem;
 }
 
-/* Booking form fields */
-.booking form {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: left;
+.booking button[type="submit"] {
+    background-color: #ff4da6;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 24px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-weight: bold;
+    animation: pulse 2s infinite;
+    border: none;
 }
 
+.booking button[type="submit"]:hover {
+    background-color: #e04493;
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    50% { transform: scale(1.06); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+    100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+}
+
+.qr-code {
+    width: 120px;
+    height: auto;
+    margin-top: 10px;
+}
+
+@keyframes backgroundMove {
+    from { background-position: left; }
+    to { background-position: right; }
+}
+
+/* Booking form layout fix */
 .booking label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
     color: #ff4da6;
+    text-align: left;
 }
 
 .booking input,
@@ -95,43 +122,4 @@ header h1 {
     background: white;
     font-size: 14px;
     box-sizing: border-box;
-}
-
-/* Book Now button */
-.book-btn {
-    background-color: #ff4da6;
-    color: white;
-    font-size: 1rem;
-    padding: 10px 24px;
-    border-radius: 25px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    font-weight: bold;
-    animation: pulse 2s infinite;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-.book-btn:hover {
-    background-color: #e04493;
-    transform: scale(1.05);
-}
-
-/* Pulse animation */
-@keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-    50% { transform: scale(1.06); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
-    100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-}
-
-/* QR code size fix */
-.qr-code {
-    width: 120px;
-    height: auto;
-    margin-top: 10px;
-}
-
-@keyframes backgroundMove {
-    from { background-position: left; }
-    to { background-position: right; }
 }
