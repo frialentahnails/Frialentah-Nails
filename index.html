@@ -44,30 +44,30 @@
     <section class="booking">
         <h2>Book Your Appointment</h2>
         <form id="bookingForm" action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
-            <label>Name:
-                <input type="text" name="name" required>
-            </label>
-            <label>Phone:
-                <input type="tel" name="phone" required>
-            </label>
-            <label>Service:
-                <select name="service" required>
-                    <option value="">Select</option>
-                    <option>French</option>
-                    <option>Ombré</option>
-                    <option>Plain</option>
-                    <option>Full Detailed</option>
-                    <option>Junks</option>
-                    <option>Minimal Detail</option>
-                </select>
-            </label>
-            <label>Date:
-                <input type="date" name="date" required>
-            </label>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="service">Service:</label>
+            <select id="service" name="service" required>
+                <option value="">Select</option>
+                <option>French</option>
+                <option>Ombré</option>
+                <option>Plain</option>
+                <option>Full Detailed</option>
+                <option>Junks</option>
+                <option>Minimal Detail</option>
+            </select>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
 
             <input type="hidden" name="_captcha" value="false">
 
-            <button type="submit">Book Now</button>
+            <button type="submit" class="book-btn">Book Now</button>
         </form>
     </section>
 
