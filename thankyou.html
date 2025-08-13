@@ -1,122 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - Frialentahs Nails</title>
-    <link rel="stylesheet" href="style.css?v=3">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 2em;
-            overflow-x: hidden;
-        }
-        header {
-            margin-bottom: 2em;
-        }
-        h1 {
-            color: #ff4da6;
-            font-size: 2em;
-        }
-        p {
-            font-size: 1.2em;
-            color: #555;
-        }
-        .thankyou-box {
-            background: white;
-            border-radius: 12px;
-            padding: 2em;
-            max-width: 400px;
-            margin: auto;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
-            position: relative;
-            z-index: 10;
-        }
-        a {
-            display: inline-block;
-            margin-top: 1.5em;
-            padding: 0.7em 1.2em;
-            background: #ff4da6;
-            color: white;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-        a:hover {
-            background: #e04493;
-            transform: scale(1.05);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You - Frialentahs Nails</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 2em;
+        background: linear-gradient(120deg, #ffdee9, #b5fffc);
+        animation: backgroundMove 10s infinite alternate;
+        overflow-x: hidden;
+    }
+    @keyframes backgroundMove {
+        from { background-position: left; }
+        to { background-position: right; }
+    }
+    header {
+        margin-bottom: 2em;
+    }
+    header h1 {
+        color: #ff4da6;
+        font-size: 2em;
+    }
+    header p {
+        color: #555;
+    }
+    .thankyou-box {
+        background: white;
+        border-radius: 12px;
+        padding: 2em;
+        max-width: 400px;
+        margin: auto;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+        position: relative;
+        z-index: 10;
+    }
+    .thankyou-box h1 {
+        color: #ff4da6;
+    }
+    a {
+        display: inline-block;
+        margin-top: 1.5em;
+        padding: 0.7em 1.2em;
+        background: #ff4da6;
+        color: white;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        animation: pulse 2s infinite;
+    }
+    a:hover {
+        background: #e04493;
+        transform: scale(1.05);
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        50% { transform: scale(1.06); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+        100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    }
+    #countdown {
+        font-weight: bold;
+        color: #555;
+        margin-top: 10px;
+    }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Frialentahs Nails</h1>
-        <p>Where your nails meet paradise</p>
-    </header>
+<header>
+    <h1>Frialentahs Nails</h1>
+    <p>Where your nails meet paradise</p>
+</header>
 
-    <div class="thankyou-box">
-        <h1>💖 Thank You!</h1>
-        <p>Your appointment request has been sent.<br>We’ll contact you soon to confirm.</p>
-        <a href="index.html">⬅ Back to Home</a>
-    </div>
+<div class="thankyou-box">
+    <h1>💖 Thank You!</h1>
+    <p>Your appointment request has been sent.<br>We’ll contact you soon to confirm.</p>
+    <p id="countdown">Redirecting in 5 seconds...</p>
+    <a href="index.html">⬅ Back to Home</a>
+</div>
 
-    <!-- Confetti animation -->
-    <canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5;"></canvas>
+<!-- Confetti canvas -->
+<canvas id="confettiCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5;"></canvas>
 
-    <script>
-        // Confetti
-        const canvas = document.getElementById('confettiCanvas');
-        const ctx = canvas.getContext('2d');
+<script>
+    // Countdown + redirect
+    let seconds = 5;
+    const countdownEl = document.getElementById("countdown");
+    const timer = setInterval(() => {
+        seconds--;
+        countdownEl.textContent = `Redirecting in ${seconds} second${seconds !== 1 ? 's' : ''}...`;
+        if (seconds <= 0) {
+            clearInterval(timer);
+            window.location.href = "./index.html";
+        }
+    }, 1000);
+
+    // Confetti animation
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confetti = [];
+    const colors = ['#ff4da6', '#ffb3d9', '#b5fffc', '#ffffff'];
+
+    for (let i = 0; i < 150; i++) {
+        confetti.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height - canvas.height,
+            r: Math.random() * 6 + 4,
+            d: Math.random() * 0.5 + 0.5,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            tilt: Math.random() * 10 - 10
+        });
+    }
+
+    function drawConfetti() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        confetti.forEach(p => {
+            ctx.beginPath();
+            ctx.fillStyle = p.color;
+            ctx.moveTo(p.x + p.tilt, p.y);
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+            ctx.fill();
+        });
+        updateConfetti();
+        requestAnimationFrame(drawConfetti);
+    }
+
+    function updateConfetti() {
+        confetti.forEach(p => {
+            p.y += p.d;
+            p.x += Math.sin(p.tilt / 2);
+            p.tilt += 0.05;
+            if (p.y > canvas.height) {
+                p.y = -10;
+                p.x = Math.random() * canvas.width;
+            }
+        });
+    }
+
+    drawConfetti();
+
+    window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-
-        const confetti = [];
-        const colors = ['#ff4da6', '#ffb3d9', '#b5fffc', '#ffffff'];
-
-        for (let i = 0; i < 150; i++) {
-            confetti.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height - canvas.height,
-                r: Math.random() * 6 + 4,
-                d: Math.random() * 0.5 + 0.5,
-                color: colors[Math.floor(Math.random() * colors.length)],
-                tilt: Math.random() * 10 - 10
-            });
-        }
-
-        function drawConfetti() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            confetti.forEach(p => {
-                ctx.beginPath();
-                ctx.fillStyle = p.color;
-                ctx.moveTo(p.x + p.tilt, p.y);
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
-                ctx.fill();
-            });
-            updateConfetti();
-            requestAnimationFrame(drawConfetti);
-        }
-
-        function updateConfetti() {
-            confetti.forEach(p => {
-                p.y += p.d;
-                p.x += Math.sin(p.tilt);
-                p.tilt += 0.05;
-                if (p.y > canvas.height) {
-                    p.y = -10;
-                    p.x = Math.random() * canvas.width;
-                }
-            });
-        }
-
-        drawConfetti();
-
-        // Auto-redirect after 5 seconds
-        setTimeout(() => {
-            window.location.href = "index.html";
-        }, 5000);
-    </script>
+    });
+</script>
 </body>
 </html>
