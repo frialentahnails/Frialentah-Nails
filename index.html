@@ -79,14 +79,14 @@
 
     <script>
     document.getElementById("bookingForm").addEventListener("submit", function(e) {
-        e.preventDefault(); // stop normal reload
+        e.preventDefault();
 
         fetch(this.action, {
             method: "POST",
             body: new FormData(this),
         }).then(response => {
             if (response.ok) {
-                window.location.href = "thankyou.html"; // go to thank-you page
+                window.location.href = "thankyou.html";
             } else {
                 alert("There was a problem sending your booking. Please try again.");
             }
