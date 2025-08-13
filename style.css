@@ -6,19 +6,70 @@ body {
     padding: 0;
     animation: backgroundMove 10s infinite alternate;
 }
-header h1 { color: #ff4da6; font-size: 2em; margin-top: 20px; }
-.phone-link { display: block; margin: 10px 0; color: #0073e6; text-decoration: none; }
-button {
-    background-color: #fff;
+
+header h1 {
+    color: #ff4da6;
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+.phone-link {
+    display: block;
+    margin: 10px 0;
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Service buttons */
+.services button {
+    background: linear-gradient(135deg, #ffb3d9, #b5fffc);
+    color: #ff4da6;
     border: none;
     padding: 10px 20px;
     margin: 5px;
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
-button:hover { background-color: #ffb3d9; }
-.qr-code { width: 150px; margin-top: 10px; }
+
+.services button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Special style for the "Book Now" submit button */
+.booking button[type="submit"] {
+    background-color: #ff4da6;
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 28px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+.booking button[type="submit"]:hover {
+    background-color: #e04493;
+    transform: scale(1.08);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    50% { transform: scale(1.06); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
+    100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+}
+
+.qr-code {
+    width: 150px;
+    margin-top: 10px;
+}
+
 @keyframes backgroundMove {
     from { background-position: left; }
     to { background-position: right; }
