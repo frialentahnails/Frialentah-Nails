@@ -10,9 +10,7 @@
     <header>
         <h1>Frialentahs Nails</h1>
         <p>Where your nails meet paradise</p>
-        <a href="sms:6787248587?&body=Hi%20I%20have%20a%20question%20about%20your%20services" class="phone-link">
-            📱 Text here for questions!
-        </a>
+        <a href="sms:6787248587" class="phone-link">📩 Text here for questions</a>
     </header>
 
     <section class="services">
@@ -49,7 +47,7 @@
 
             <input type="hidden" name="_captcha" value="false">
 
-            <button type="submit">Book Now</button>
+            <button type="submit" class="book-btn">Book Now</button>
         </form>
     </section>
 
@@ -61,14 +59,13 @@
 
     <script>
     document.getElementById("bookingForm").addEventListener("submit", function(e) {
-        e.preventDefault(); // stop normal reload
-
+        e.preventDefault();
         fetch(this.action, {
             method: "POST",
             body: new FormData(this),
         }).then(response => {
             if (response.ok) {
-                window.location.href = "thankyou.html"; // go to thank-you page
+                window.location.href = "thankyou.html";
             } else {
                 alert("There was a problem sending your booking. Please try again.");
             }
