@@ -47,7 +47,7 @@
 
             <input type="hidden" name="_captcha" value="false">
 
-            <button type="submit" class="book-btn">Book Now</button>
+            <button type="submit">Book Now</button>
         </form>
     </section>
 
@@ -60,6 +60,7 @@
     <script>
     document.getElementById("bookingForm").addEventListener("submit", function(e) {
         e.preventDefault();
+
         fetch(this.action, {
             method: "POST",
             body: new FormData(this),
