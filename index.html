@@ -10,16 +10,35 @@
     <header>
         <h1>Frialentahs Nails</h1>
         <p>Where your nails meet paradise</p>
-        <a href="sms:6787248587" class="phone-link">💌 Text here for <span>questions</span></a>
+        <a href="sms:6787248587" class="phone-link">💬 Text here for questions</a>
     </header>
 
     <section class="services">
         <h2>Our Services</h2>
-        <button>Junks Nails</button>
-        <button>Detailed Nails</button>
-        <button>Plain</button>
-        <button>Ombré</button>
-        <button>Regular French</button>
+        <div class="service-item">
+            <button>French</button>
+            <p class="price">$25</p>
+        </div>
+        <div class="service-item">
+            <button>Ombré</button>
+            <p class="price">$25</p>
+        </div>
+        <div class="service-item">
+            <button>Plain</button>
+            <p class="price">$20</p>
+        </div>
+        <div class="service-item">
+            <button>Full Detailed</button>
+            <p class="price">$35</p>
+        </div>
+        <div class="service-item">
+            <button>Junks</button>
+            <p class="price">$35</p>
+        </div>
+        <div class="service-item">
+            <button>Minimal Detail</button>
+            <p class="price">$30</p>
+        </div>
     </section>
 
     <section class="booking">
@@ -34,11 +53,12 @@
             <label>Service:
                 <select name="service" required>
                     <option value="">Select</option>
-                    <option>Junks Nails</option>
-                    <option>Detailed Nails</option>
-                    <option>Plain</option>
+                    <option>French</option>
                     <option>Ombré</option>
-                    <option>Regular French</option>
+                    <option>Plain</option>
+                    <option>Full Detailed</option>
+                    <option>Junks</option>
+                    <option>Minimal Detail</option>
                 </select>
             </label>
             <label>Date:
@@ -59,14 +79,14 @@
 
     <script>
     document.getElementById("bookingForm").addEventListener("submit", function(e) {
-        e.preventDefault();
+        e.preventDefault(); // stop normal reload
 
         fetch(this.action, {
             method: "POST",
             body: new FormData(this),
         }).then(response => {
             if (response.ok) {
-                window.location.href = "thankyou.html";
+                window.location.href = "thankyou.html"; // go to thank-you page
             } else {
                 alert("There was a problem sending your booking. Please try again.");
             }
