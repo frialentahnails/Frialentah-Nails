@@ -45,12 +45,12 @@ header h1 {
 .booking button[type="submit"] {
     background-color: #ff4da6;
     color: white;
-    font-size: 1.2rem;
-    padding: 12px 28px;
-    border-radius: 25px;
+    font-size: 1.05rem; /* smaller text */
+    padding: 10px 22px; /* smaller padding */
+    border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     font-weight: bold;
-    animation: pulse 2s infinite;
+    animation: pulse 3s infinite; /* slowed & smooth */
 }
 
 .booking button[type="submit"]:hover {
@@ -58,11 +58,11 @@ header h1 {
     transform: scale(1.08);
 }
 
-/* Pulse animation */
+/* Smooth pulse with shadow fade */
 @keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-    50% { transform: scale(1.06); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
-    100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+    50% { transform: scale(1.06); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+    100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
 }
 
 .qr-code {
