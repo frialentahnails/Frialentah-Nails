@@ -24,7 +24,7 @@
 
     <section class="booking">
         <h2>Book Your Appointment</h2>
-        <form action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
+        <form id="bookingForm" action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
             <label>Name:
                 <input type="text" name="name" required>
             </label>
@@ -45,10 +45,7 @@
                 <input type="date" name="date" required>
             </label>
 
-            <!-- Redirect to thank-you page after submission -->
-            <input type="hidden" name="_next" value="thankyou.html">
-
-            <!-- Optional: Disable CAPTCHA -->
+            <!-- Disable CAPTCHA -->
             <input type="hidden" name="_captcha" value="false">
 
             <button type="submit">Book Now</button>
@@ -61,6 +58,16 @@
         <img src="cashapp-qr.jpeg" alt="Cash App QR Code" class="qr-code">
     </section>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("bookingForm").addEventListener("submit", function(e) {
+            e.preventDefault(); // Stop normal page reload
+            fetch(this.action, {
+                method: "POST",
+                body: new FormData(this)
+            }).then(() => {
+                window.location.href = "thankyou.html"; // Redirect to thank you page
+            });
+        });
+    </script>
 </body>
 </html>
