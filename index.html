@@ -4,38 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frialentahs Nails</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
+
 <body>
+
+  <!-- HEADER -->
   <header>
     <h1>Frialentahs Nails</h1>
-    <p>Where your nails meet paradise</p>
-    <a href="sms:6787248587" class="phone-link">💬 Text here for questions</a>
+    <p>Where your nails meet paradise ✨</p>
+    <a href="sms:6787248587" class="phone-link">💬 Text for questions</a>
   </header>
 
+  <!-- SERVICES -->
   <section class="services">
     <h2>Our Services</h2>
-    <div class="service-item"><button>French</button><p class="price">$25</p></div>
-    <div class="service-item"><button>Ombré</button><p class="price">$25</p></div>
-    <div class="service-item"><button>Plain</button><p class="price">$20</p></div>
-    <div class="service-item"><button>Full Detailed</button><p class="price">$35</p></div>
-    <div class="service-item"><button>Junks</button><p class="price">$35</p></div>
-    <div class="service-item"><button>Minimal Detail</button><p class="price">$25</p></div>
+
+    <div class="service-item">
+      <button type="button">French</button>
+      <p class="price">$30</p>
+    </div>
+
+    <div class="service-item">
+      <button type="button">Ombré</button>
+      <p class="price">$35</p>
+    </div>
+
+    <div class="service-item">
+      <button type="button">Plain</button>
+      <p class="price">$25</p>
+    </div>
+
+    <div class="service-item">
+      <button type="button">Full Detailed</button>
+      <p class="price">$45</p>
+    </div>
+
+    <div class="service-item">
+      <button type="button">Junks</button>
+      <p class="price">$40</p>
+    </div>
+
+    <div class="service-item">
+      <button type="button">Minimal Detail</button>
+      <p class="price">$35</p>
+    </div>
   </section>
 
+  <!-- BOOKING -->
   <section class="booking">
     <h2>Book Your Appointment</h2>
-    <form id="bookingForm" action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
 
-      <label for="name">Name:</label>
+    <form action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
+
+      <label for="name">Full Name</label>
       <input type="text" id="name" name="name" required>
 
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required>
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="123-456-7890" required>
 
-      <label for="service">Service:</label>
+      <label for="service">Select Service</label>
       <select id="service" name="service" required>
-        <option value="">Select</option>
+        <option value="">Choose one</option>
         <option>French</option>
         <option>Ombré</option>
         <option>Plain</option>
@@ -44,21 +74,43 @@
         <option>Minimal Detail</option>
       </select>
 
-      <label for="date">Date:</label>
+      <label for="date">Appointment Date</label>
       <input type="date" id="date" name="date" required>
 
-      <!-- FormSubmit controls -->
+      <!-- FORM SUBMIT SETTINGS (DO NOT REMOVE) -->
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://frialentahnails.github.io/Frialentah-Nails/thankyou.html">
 
-      <button type="submit" class="book-btn">Book Now</button>
+      <button type="submit" class="book-btn">Book Appointment</button>
     </form>
   </section>
 
+  <!-- PAYMENT -->
   <section class="payment">
-    <h2>Payment via Cash App</h2>
-    <p>Send to <strong>$heather5366</strong></p>
+    <h2>Payment</h2>
+    <p>Payment via Cash App</p>
+    <p><strong>$heather5366</strong></p>
     <img src="cashapp-qr.jpeg" alt="Cash App QR Code" class="qr-code">
   </section>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Auto-fill service when clicked
+    const buttons = document.querySelectorAll(".service-item button");
+    const serviceSelect = document.getElementById("service");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        serviceSelect.value = button.textContent;
+        serviceSelect.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    // Prevent past dates
+    const dateInput = document.getElementById("date");
+    const today = new Date().toISOString().split("T")[0];
+    dateInput.min = today;
+  </script>
+
 </body>
 </html>
