@@ -7,6 +7,7 @@ body {
     animation: backgroundMove 10s infinite alternate;
 }
 
+/* HEADER */
 header h1 {
     color: #ff4da6;
     font-size: 2em;
@@ -17,11 +18,9 @@ header h1 {
     display: inline-block;
     background: linear-gradient(135deg, #ffb3d9, #b5fffc);
     color: #ff4da6;
-    border: none;
     padding: 10px 20px;
     margin: 10px 0;
     border-radius: 8px;
-    cursor: pointer;
     text-decoration: none;
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -33,7 +32,7 @@ header h1 {
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* Service buttons */
+/* SERVICES */
 .services {
     margin-top: 20px;
 }
@@ -51,9 +50,8 @@ header h1 {
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    font-size: 1rem;
     font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -66,10 +64,9 @@ header h1 {
     margin-top: 5px;
     font-weight: bold;
     color: #ff4da6;
-    font-size: 0.9rem;
 }
 
-/* Booking form - stacked layout */
+/* BOOKING FORM */
 .booking {
     max-width: 400px;
     margin: 0 auto;
@@ -85,29 +82,25 @@ header h1 {
 
 .booking input,
 .booking select {
-    display: block;
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 12px;
     border: 1px solid #ccc;
     background: white;
-    font-size: 14px;
     box-sizing: border-box;
 }
 
-/* "Book Now" button */
+/* BOOK BUTTON */
 .book-btn {
     background-color: #ff4da6;
     color: white;
-    font-size: 1rem;
     padding: 10px 24px;
     border-radius: 25px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    font-weight: bold;
-    animation: pulse 2s infinite;
     border: none;
+    font-weight: bold;
     cursor: pointer;
+    animation: pulse 2s infinite;
 }
 
 .book-btn:hover {
@@ -115,22 +108,85 @@ header h1 {
     transform: scale(1.05);
 }
 
-/* Pulse animation */
-@keyframes pulse {
-    0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-    50% { transform: scale(1.06); box-shadow: 0 6px 15px rgba(0,0,0,0.3); }
-    100% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-}
-
-/* QR code size */
+/* PAYMENT */
 .qr-code {
     width: 120px;
-    height: auto;
     margin-top: 10px;
+}
+
+/* REVIEWS */
+.reviews {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.review {
+    background: linear-gradient(135deg, #fff, #ffe6f2);
+    margin: 15px auto;
+    padding: 15px;
+    max-width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.stars {
+    color: gold;
+    margin-bottom: 5px;
+}
+
+/* REVIEW FORM */
+.add-review {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.add-review form {
+    max-width: 350px;
+    margin: auto;
+}
+
+.add-review input,
+.add-review textarea,
+.add-review select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.add-review textarea {
+    height: 80px;
+    resize: none;
+}
+
+.add-review button {
+    background: #ff4da6;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* TIME SELECT */
+#time {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+}
+
+/* ANIMATIONS */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
 }
 
 @keyframes backgroundMove {
     from { background-position: left; }
     to { background-position: right; }
 }
-
