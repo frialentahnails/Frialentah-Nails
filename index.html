@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frialentahs Nails</title>
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 
 <body>
@@ -55,7 +55,7 @@
   <section class="booking">
     <h2>Book Your Appointment</h2>
 
-    <form action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
+    <form id="bookingForm" action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
 
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" required>
@@ -77,9 +77,22 @@
       <label for="date">Appointment Date</label>
       <input type="date" id="date" name="date" required>
 
-      <!-- FORM SUBMIT SETTINGS (DO NOT REMOVE) -->
+      <!-- TIME SLOT -->
+      <label for="time">Select Time</label>
+      <select id="time" name="time" required>
+        <option value="">Choose a time</option>
+        <option>9:00 AM</option>
+        <option>10:00 AM</option>
+        <option>11:00 AM</option>
+        <option>12:00 PM</option>
+        <option>1:00 PM</option>
+        <option>2:00 PM</option>
+        <option>3:00 PM</option>
+        <option>4:00 PM</option>
+        <option>5:00 PM</option>
+      </select>
+
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://frialentahnails.github.io/Frialentah-Nails/thankyou.html">
 
       <button type="submit" class="book-btn">Book Appointment</button>
     </form>
@@ -93,9 +106,30 @@
     <img src="cashapp-qr.jpeg" alt="Cash App QR Code" class="qr-code">
   </section>
 
-  <!-- SCRIPTS -->
+  <!-- REVIEWS -->
+  <section class="reviews">
+    <h2>Client Reviews 💖</h2>
+
+    <div class="review">
+      <p>"My nails came out PERFECT 😍 definitely booking again!"</p>
+      <span>- Aaliyah</span>
+    </div>
+
+    <div class="review">
+      <p>"Super neat work and very professional 💅"</p>
+      <span>- Jasmine</span>
+    </div>
+
+    <div class="review">
+      <p>"Best nail tech I’ve been to, no cap!"</p>
+      <span>- Brianna</span>
+    </div>
+
+  </section>
+
+  <!-- SCRIPT -->
   <script>
-    // Auto-fill service when clicked
+    // Auto-fill service
     const buttons = document.querySelectorAll(".service-item button");
     const serviceSelect = document.getElementById("service");
 
@@ -110,6 +144,20 @@
     const dateInput = document.getElementById("date");
     const today = new Date().toISOString().split("T")[0];
     dateInput.min = today;
+
+    // Submit + redirect
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      fetch(this.action, {
+        method: "POST",
+        body: new FormData(this),
+      }).then(() => {
+        window.location.href = "thankyou.html";
+      }).catch(() => {
+        alert("Something went wrong. Please try again.");
+      });
+    });
   </script>
 
 </body>
