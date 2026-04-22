@@ -77,19 +77,9 @@
       <label>Appointment Date</label>
       <input type="date" id="date" name="date" required>
 
-      <label>Time Slot</label>
-      <select id="time" name="time" required>
-        <option value="">Choose time</option>
-        <option>9:00 AM</option>
-        <option>10:00 AM</option>
-        <option>11:00 AM</option>
-        <option>12:00 PM</option>
-        <option>1:00 PM</option>
-        <option>2:00 PM</option>
-        <option>3:00 PM</option>
-        <option>4:00 PM</option>
-        <option>5:00 PM</option>
-      </select>
+      <!-- ⭐ CUSTOM TIME INPUT (NEW) -->
+      <label>Preferred Time</label>
+      <input type="time" id="time" name="time" required>
 
       <input type="hidden" name="_captcha" value="false">
 
@@ -154,7 +144,7 @@
 
   <!-- SCRIPT -->
   <script>
-    // service auto-fill
+    // auto-fill service buttons
     document.querySelectorAll(".service-item button").forEach(btn => {
       btn.addEventListener("click", () => {
         document.getElementById("service").value = btn.textContent;
@@ -165,7 +155,7 @@
     const dateInput = document.getElementById("date");
     dateInput.min = new Date().toISOString().split("T")[0];
 
-    // submit + redirect
+    // submit + redirect to thank you page
     document.getElementById("bookingForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
