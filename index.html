@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frialentahs Nails</title>
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 
 <body>
@@ -57,13 +57,13 @@
 
     <form id="bookingForm" action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
 
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" required>
+      <label>Full Name</label>
+      <input type="text" name="name" required>
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" placeholder="123-456-7890" required>
+      <label>Phone Number</label>
+      <input type="tel" name="phone" required>
 
-      <label for="service">Select Service</label>
+      <label>Select Service</label>
       <select id="service" name="service" required>
         <option value="">Choose one</option>
         <option>French</option>
@@ -74,13 +74,12 @@
         <option>Minimal Detail</option>
       </select>
 
-      <label for="date">Appointment Date</label>
+      <label>Appointment Date</label>
       <input type="date" id="date" name="date" required>
 
-      <!-- TIME SLOT -->
-      <label for="time">Select Time</label>
+      <label>Time Slot</label>
       <select id="time" name="time" required>
-        <option value="">Choose a time</option>
+        <option value="">Choose time</option>
         <option>9:00 AM</option>
         <option>10:00 AM</option>
         <option>11:00 AM</option>
@@ -101,9 +100,8 @@
   <!-- PAYMENT -->
   <section class="payment">
     <h2>Payment</h2>
-    <p>Payment via Cash App</p>
     <p><strong>$heather5366</strong></p>
-    <img src="cashapp-qr.jpeg" alt="Cash App QR Code" class="qr-code">
+    <img src="cashapp-qr.jpeg" class="qr-code" alt="Cash App QR Code">
   </section>
 
   <!-- REVIEWS -->
@@ -111,51 +109,71 @@
     <h2>Client Reviews 💖</h2>
 
     <div class="review">
-      <p>"My nails came out PERFECT 😍 definitely booking again!"</p>
+      <div class="stars">★★★★★</div>
+      <p>"My nails came out PERFECT 😍"</p>
       <span>- Aaliyah</span>
     </div>
 
     <div class="review">
-      <p>"Super neat work and very professional 💅"</p>
+      <div class="stars">★★★★★</div>
+      <p>"Super neat and professional 💅"</p>
       <span>- Jasmine</span>
     </div>
 
     <div class="review">
-      <p>"Best nail tech I’ve been to, no cap!"</p>
+      <div class="stars">★★★★★</div>
+      <p>"Best nail tech ever!"</p>
       <span>- Brianna</span>
     </div>
+  </section>
 
+  <!-- REVIEW FORM -->
+  <section class="add-review">
+    <h2>Leave a Review ✨</h2>
+
+    <form action="https://formsubmit.co/heathergrant202@gmail.com" method="POST">
+
+      <input type="text" name="name" placeholder="Your Name" required>
+
+      <textarea name="review" placeholder="Write your review..." required></textarea>
+
+      <select name="rating" required>
+        <option value="">Rating</option>
+        <option>★★★★★</option>
+        <option>★★★★☆</option>
+        <option>★★★☆☆</option>
+        <option>★★☆☆☆</option>
+        <option>★☆☆☆☆</option>
+      </select>
+
+      <input type="hidden" name="_captcha" value="false">
+
+      <button type="submit">Submit Review</button>
+    </form>
   </section>
 
   <!-- SCRIPT -->
   <script>
-    // Auto-fill service
-    const buttons = document.querySelectorAll(".service-item button");
-    const serviceSelect = document.getElementById("service");
-
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        serviceSelect.value = button.textContent;
-        serviceSelect.scrollIntoView({ behavior: "smooth" });
+    // service auto-fill
+    document.querySelectorAll(".service-item button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.getElementById("service").value = btn.textContent;
       });
     });
 
-    // Prevent past dates
+    // prevent past dates
     const dateInput = document.getElementById("date");
-    const today = new Date().toISOString().split("T")[0];
-    dateInput.min = today;
+    dateInput.min = new Date().toISOString().split("T")[0];
 
-    // Submit + redirect
+    // submit + redirect
     document.getElementById("bookingForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
       fetch(this.action, {
         method: "POST",
-        body: new FormData(this),
+        body: new FormData(this)
       }).then(() => {
         window.location.href = "thankyou.html";
-      }).catch(() => {
-        alert("Something went wrong. Please try again.");
       });
     });
   </script>
